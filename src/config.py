@@ -1,4 +1,5 @@
-column_to_delete = 'animal_name'
-class_column = 'class_type'
-seed = 42
-test_size = 0.3
+COLUMN_TO_DELETE = ['animal_name', 'class_type']
+CLASS_COLUMN = 'class_type'
+PATH_TO_DATASET = '../data/zoo.csv'
+SEED = 42
+TEST_SIZE = 0.3
