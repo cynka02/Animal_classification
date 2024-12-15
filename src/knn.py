@@ -1,42 +1,34 @@
-import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+from load_dataset import split_data
 
 
-def find_best_k(train, test, train_classes, test_classes):
+def find_best_k(x_train, x_test, y_train, y_test):
     accuracy_list = []
 
-    for k in range(1, len(train)):
+    for k in range(1, len(x_train)):
         knn = KNeighborsClassifier(n_neighbors=k)
-        knn.fit(train, train_classes)
-        prediction = knn.predict(test)
-        accuracy_list.append(accuracy_score(test_classes, prediction))
+        knn.fit(x_train, y_train)
+        prediction = knn.predict(x_test)
+        accuracy_list.append(accuracy_score(y_test, prediction))
 
     return accuracy_list.index(max(accuracy_list)) + 1
 
 
-def get_model_knn(path_to_dataset):
-    data = pd.read_csv(path_to_dataset)
-    data = data.drop('animal_name', axis=1)
+def get_model_knn():
+    x_train, x_test, y_train, y_test = split_data()
 
-    train, test = train_test_split(data, test_size=0.3, random_state=42)
-    train_classes = train['class_type']
-    train = train.drop('class_type', axis=1)
-    test_classes = test['class_type']
-    test = test.drop('class_type', axis=1)
+    best_k = find_best_k(x_train, x_test, y_train, y_test)
 
-    k = find_best_k(train, test, train_classes, test_classes)
+    model = KNeighborsClassifier(n_neighbors=best_k)
+    model.fit(x_train, y_train)
 
-    knn = KNeighborsClassifier(n_neighbors=k)
-    knn.fit(train, train_classes)
-
-    return knn
+    return model
 
 
 def main():
 
-    get_model_knn('../data/zoo.csv')
+    get_model_knn()
 
 
 if __name__ == "__main__":
