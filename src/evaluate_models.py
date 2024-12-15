@@ -1,32 +1,34 @@
 from knn import get_model_knn
 from DecisionTree import get_model_DecisionTree
+from svc import get_model_SVC
+from RandomForest import get_model_RandomForest
+from load_dataset import split_data
 from sklearn.metrics import accuracy_score
-from sklearn.model_selection import train_test_split
-import pandas as pd
 
 
-def compute_accuracy(model, test):
-    test_classes = test['class_type']
-    test = test.drop(columns=['class_type', 'animal_name'])
-
+def compute_accuracy(model, test, test_classes):
     return accuracy_score(test_classes, model.predict(test))
 
 
-def evaluate_models(path_to_dataset):
-    data = pd.read_csv(path_to_dataset)
-    train, test = train_test_split(data, test_size=0.3, random_state=42)
+def evaluate_models():
+    x_train, x_test, y_train, y_test = split_data()
 
-    knn = get_model_knn(path_to_dataset)
-    decision_tree = get_model_DecisionTree(path_to_dataset)
+    knn = get_model_knn()
+    # decision_tree = get_model_DecisionTree()
+    # svc = get_model_SVC()
+    # random_forest = get_model_RandomForest()
 
-    models_evaulation = {'kNN': compute_accuracy(knn, test),
-                         'Decision Tree': compute_accuracy(decision_tree, test)}
+    models_evaulation = {'kNN': accuracy_score(y_test, knn.predict(x_test)),
+                         'Decision Tree': accuracy_score(y_test, decision_tree.predict(x_test)),
+                         'SVC': accuracy_score(y_test, svc.predict(x_test)),
+                         'Random Forest': accuracy_score(y_test, random_forest.predict(x_test))}
 
     print(models_evaulation)
 
+
 def main():
 
-    evaluate_models('../data/zoo.csv')
+    evaluate_models()
 
 
 if __name__ == "__main__":
