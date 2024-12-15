@@ -16,4 +16,5 @@ def main():
     path_to_dataset = '../data/zoo.csv'
     get_model_SVC(path_to_dataset)
 
-
+if __name__ == "__main__":
+    main()
