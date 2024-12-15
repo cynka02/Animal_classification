@@ -14,9 +14,9 @@ def evaluate_models():
     x_train, x_test, y_train, y_test = split_data()
 
     knn = get_model_knn()
-    # decision_tree = get_model_DecisionTree()
-    # svc = get_model_SVC()
-    # random_forest = get_model_RandomForest()
+    decision_tree = get_model_DecisionTree()
+    svc = get_model_SVC()
+    random_forest = get_model_RandomForest()
 
     models_evaulation = {'kNN': accuracy_score(y_test, knn.predict(x_test)),
                          'Decision Tree': accuracy_score(y_test, decision_tree.predict(x_test)),
