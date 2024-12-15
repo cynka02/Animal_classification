@@ -9,7 +9,6 @@ def get_model_DecisionTree(path_to_dataset):
     x_train, x_test, y_train, y_test = split_data()
     model = DecisionTreeClassifier()
     model.fit(x_train, y_train)
-
     return model
 
 def main():
