@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.model_selection import train_test_split
+from load_dataset import split_data
 
 def get_model_DecisionTree(path_to_dataset):
     data = pd.read_csv(path_to_dataset)
