@@ -1,20 +1,27 @@
 import pandas as pd
-from train_test_split import get_data
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
 
 
-def find_best_k(train, test):
+def find_best_k(train, test, classes):
+
     # create models for each k
     # return k
     pass
 
 
 def get_model_knn():
-    # import data
-    # find best k
-    # create model with best k
-    # return model
-    pass
+    data = pd.read_csv('../data/zoo.csv')
+    data = data.drop('animal_name', axis=1)
+
+    train, test = train_test_split(data, test_size=0.2)
+
+    k = find_best_k(train, test)
+
+    knn = KNeighborsClassifier(n_neighbors=k)
+    knn.fit(train, data['class_type'])
+
+    return knn
 
 
 def main():
