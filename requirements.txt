@@ -1,2 +1,2 @@
 pandas==2.2.3
-mlcroissant==1.0.12
+scikit-learn==1.5.2
