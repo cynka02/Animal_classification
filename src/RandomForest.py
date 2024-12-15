@@ -2,11 +2,8 @@ from sklearn.ensemble import RandomForestClassifier
 from load_dataset import split_data
 
 
-def get_model_RandomForest(path_to_dataset):
-    data = pd.read_csv(path_to_dataset)
-    x = data.drop(columns=['animal_name', 'class_type'])
-    y = data['class_type']
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
+def get_model_RandomForest():
+    x_train, x_test, y_train, y_test = split_data()
     model = RandomForestClassifier()
     model.fit(x_train, y_train)
 
@@ -14,8 +11,7 @@ def get_model_RandomForest(path_to_dataset):
 
 
 def main():
-    path_to_dataset = '../data/zoo.csv'
-    get_model_RandomForest(path_to_dataset)
+    get_model_RandomForest()
 
 
 if __name__ == "__main__":
