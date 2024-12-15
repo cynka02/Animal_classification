@@ -29,7 +29,7 @@ def get_model_knn():
     data = pd.read_csv('../data/zoo.csv')
     data = data.drop('animal_name', axis=1)
 
-    train, test = train_test_split(data, test_size=0.2)
+    train, test = train_test_split(data, test_size=0.2, random_state=42)
     train_classes = train['class_type']
     train = train.drop('class_type', axis=1)
     test_classes = test['class_type']
