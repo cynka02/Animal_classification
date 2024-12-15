@@ -2,10 +2,10 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 
-def get_model_DecisionTree(dataset, columns_to_drop, target):
-    data = pd.read_csv(dataset)
-    x = data.drop(columns=columns_to_drop)
-    y = data[target]
+def get_model_DecisionTree(path_to_dataset):
+    data = pd.read_csv(path_to_dataset)
+    x = data.drop(columns=['animal_name', 'class_type'])
+    y = data['class_type']
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=42)
     model = DecisionTreeClassifier()
     model.fit(x_train, y_train)
@@ -13,10 +13,8 @@ def get_model_DecisionTree(dataset, columns_to_drop, target):
     return model
 
 def main():
-    dataset = '../data/zoo.csv'
-    columns_to_drop = ['animal_name', 'class_type']
-    target = 'class_type'
-    get_model_DecisionTree(dataset, columns_to_drop, target)
+    path_to_dataset = '../data/zoo.csv'
+    get_model_DecisionTree(path_to_dataset)
 
 if __name__ == "__main__":
     main()
