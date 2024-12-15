@@ -12,4 +12,11 @@ def get_model_DecisionTree(dataset, columns_to_drop, target):
 
     return model
 
+def main():
+    dataset = '../data/zoo.csv'
+    columns_to_drop = ['animal_name', 'class_type']
+    target = 'class_type'
+    get_model_DecisionTree(dataset, columns_to_drop, target)
 
+if __name__ == "__main__":
+    main()
