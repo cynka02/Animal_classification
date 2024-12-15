@@ -16,8 +16,8 @@ def find_best_k(train, test, train_classes, test_classes):
     return accuracy_list.index(max(accuracy_list)) + 1
 
 
-def get_model_knn():
-    data = pd.read_csv('../data/zoo.csv')
+def get_model_knn(path_to_dataset):
+    data = pd.read_csv(path_to_dataset)
     data = data.drop('animal_name', axis=1)
 
     train, test = train_test_split(data, test_size=0.3, random_state=42)
@@ -36,7 +36,7 @@ def get_model_knn():
 
 def main():
 
-    get_model_knn()
+    get_model_knn('../data/zoo.csv')
 
 
 if __name__ == "__main__":
