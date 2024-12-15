@@ -12,3 +12,8 @@ def get_model_SVC(path_to_dataset):
 
     return model
 
+def main():
+    path_to_dataset = '../data/zoo.csv'
+    get_model_SVC(path_to_dataset)
+
+
