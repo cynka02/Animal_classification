@@ -11,22 +11,22 @@ def find_nearest_to_50(dict):
 def ask_question(data):
     variety = {}
     for column in data.columns:
-        if column not in ('animal_name', 'legs'):
+        if column not in ('animal_name', 'legs'):  # Legs should be added based on a different rules
             variety[column] = sum(data[column]) / len(data)
     feature = find_nearest_to_50(variety)
-    answer = input('Is your animal a ' + feature + ' (Yes/No)?\n')
+    answer = input('Is your animal a ' + feature + ' (Yes/No)?\n')  # Need to add more types of questions
     answer = 1 if answer == 'Yes' else 0
     data = data[data[feature] == answer].drop(columns=feature)
-    print(data)
     return data
 
 
 def guess_animal():
     data = load_data()
-    while len(data) > 1:
+    while len(data) > 1:  # Also should stop when length of data didn't change after last iteration
         data = ask_question(data)
     if len(data) == 0:
         return "I don't know about such animal"
+    # Add elif len(data) > 0
     return data['animal_name']
 
 
