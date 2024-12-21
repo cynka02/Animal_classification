@@ -1,5 +1,5 @@
 from sklearn.ensemble import RandomForestClassifier
-from load_dataset import split_data
+from src.load_dataset import split_data
 
 
 def get_model_RandomForest():

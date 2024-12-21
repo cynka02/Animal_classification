@@ -1,7 +1,7 @@
-from knn import get_model_knn
-from DecisionTree import get_model_DecisionTree
-from svc import get_model_SVC
-from RandomForest import get_model_RandomForest
+from models.knn import get_model_knn
+from models.DecisionTree import get_model_DecisionTree
+from models.svc import get_model_SVC
+from models.RandomForest import get_model_RandomForest
 from load_dataset import split_data
 from sklearn.metrics import accuracy_score
 
