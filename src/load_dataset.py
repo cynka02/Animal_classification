@@ -12,5 +12,4 @@ def split_data():
 
 def load_data():
     data = pd.read_csv(PATH_TO_DATASET)
-    data = data.drop(columns='class_type')
     return data
