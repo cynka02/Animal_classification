@@ -2,7 +2,13 @@ from sklearn.svm import SVC
 from src.load_dataset import split_data
 
 
-def get_model_SVC():
+def get_model_svc():
+    """
+        Trains a Support Vector Classifier (SVC) model
+
+        Returns:
+            SVC: A trained Support Vector Classifier model.
+    """
     x_train, x_test, y_train, y_test = split_data()
     model = SVC(probability=True)
     model.fit(x_train, y_train)
@@ -10,7 +16,7 @@ def get_model_SVC():
 
 
 def main():
-    get_model_SVC()
+    get_model_svc()
 
 
 if __name__ == "__main__":
