@@ -2,7 +2,13 @@ from sklearn.ensemble import RandomForestClassifier
 from src.load_dataset import split_data
 
 
-def get_model_RandomForest():
+def get_model_random_forest():
+    """
+        Trains a Random Forest Classifier model.
+
+        Returns:
+            RandomForestClassifier: A trained Random Forest Classifier model.
+    """
     x_train, x_test, y_train, y_test = split_data()
     model = RandomForestClassifier()
     model.fit(x_train, y_train)
@@ -11,7 +17,7 @@ def get_model_RandomForest():
 
 
 def main():
-    get_model_RandomForest()
+    get_model_random_forest()
 
 
 if __name__ == "__main__":
