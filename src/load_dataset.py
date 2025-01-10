@@ -5,11 +5,12 @@ from sklearn.model_selection import train_test_split
 
 def split_data():
     """
-        Splits data into train and test dataframes
+        Splits data into train and test dataframes.
 
         Returns:
-            tuple with train and test dataframes
+            tuple: train and test dataframes.
     """
+
     data = pd.read_csv(PATH_TO_DATASET)
     data = data.drop_duplicates()
     x = data.drop(columns=COLUMN_TO_DELETE)

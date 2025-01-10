@@ -14,10 +14,10 @@ def compute_accuracy(model, test, test_classes):
 
 def evaluate_models():
     """
-        Trains all available models and evaluate them to find the best fitted model
+        Trains all available models and evaluate them to find the best fitted model.
 
         Returns:
-            Dictionary of model name and accuracy
+            dict: Model names and accuracy.
     """
 
     x_train, x_test, y_train, y_test = split_data()
