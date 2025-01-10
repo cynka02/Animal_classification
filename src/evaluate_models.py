@@ -43,6 +43,7 @@ def main():
 
     accuracy = evaluate_models()
     print(accuracy)
+    print('With the most accuracy: ' + max(accuracy, key=accuracy.get))
 
 
 if __name__ == '__main__':
