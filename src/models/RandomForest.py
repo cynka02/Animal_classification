@@ -9,6 +9,7 @@ def get_model_random_forest():
         Returns:
             RandomForestClassifier: A trained Random Forest Classifier model.
     """
+
     x_train, x_test, y_train, y_test = split_data()
     model = RandomForestClassifier()
     model.fit(x_train, y_train)
@@ -20,5 +21,5 @@ def main():
     get_model_random_forest()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

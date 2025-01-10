@@ -9,6 +9,7 @@ def get_model_decision_tree():
         Returns:
             DecisionTreeClassifier: A trained Decision Tree Classifier model.
     """
+
     x_train, x_test, y_train, y_test = split_data()
     model = DecisionTreeClassifier()
     model.fit(x_train, y_train)
@@ -19,5 +20,5 @@ def main():
     get_model_decision_tree()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

@@ -9,6 +9,7 @@ def get_model_kmeans():
         Returns:
             KMeans: A trained KMeans clustering model.
     """
+
     x_train, x_test, y_train, y_test = split_data()
     model = KMeans(n_clusters=7)
     model.fit(x_train)
@@ -19,5 +20,5 @@ def main():
     get_model_kmeans()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

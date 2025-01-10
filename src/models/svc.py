@@ -9,6 +9,7 @@ def get_model_svc():
         Returns:
             SVC: A trained Support Vector Classifier model.
     """
+
     x_train, x_test, y_train, y_test = split_data()
     model = SVC(probability=True)
     model.fit(x_train, y_train)
@@ -19,5 +20,5 @@ def main():
     get_model_svc()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

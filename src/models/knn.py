@@ -16,7 +16,8 @@ def find_best_k(x_train, x_test, y_train, y_test):
 
         Returns:
             int: The value of k (number of neighbors) that achieves the highest accuracy on the test data.
-        """
+    """
+
     accuracy_list = []
 
     for k in range(1, len(x_train)):
@@ -35,6 +36,7 @@ def get_model_knn():
        Returns:
         KNeighborsClassifier: A trained kNN model with the optimal k value.
     """
+
     x_train, x_test, y_train, y_test = split_data()
 
     best_k = find_best_k(x_train, x_test, y_train, y_test)
@@ -50,5 +52,5 @@ def main():
     get_model_knn()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
