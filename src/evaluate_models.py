@@ -13,6 +13,13 @@ def compute_accuracy(model, test, test_classes):
 
 
 def evaluate_models():
+    """
+        Trains all available models and evaluate them to find the best fitted model
+
+        Returns:
+            Dictionary of model name and accuracy
+    """
+
     x_train, x_test, y_train, y_test = split_data()
 
     knn = get_model_knn()
@@ -29,13 +36,14 @@ def evaluate_models():
                          'KMeans': accuracy_score(y_test, kmeans.predict(x_test)),
                          'Gradient Boosting': accuracy_score(y_test, gradient_boosting.predict(x_test))}
 
-    print(models_evaluation)
+    return models_evaluation
 
 
 def main():
 
-    evaluate_models()
+    accuracy = evaluate_models()
+    print(accuracy)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
