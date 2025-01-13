@@ -4,27 +4,27 @@ from ctypes import windll
 
 
 def place_input_box():
-    input_box_border.place(relx=0.5, rely=0.52, anchor='center')
+    input_box_border.place(relx=0.5, rely=0.54, anchor='center')
     input_box.pack()
 
-    submit_button_border.place(relx=0.5, rely=0.63, anchor='center')
+    submit_button_border.place(relx=0.5, rely=0.66, anchor='center')
     submit_button.pack()
 
     place_forget((button1_border, button2_border))
 
 
 def place_choice_buttons():
-    button1_border.place(relx=0.45, rely=0.56, anchor='center')
+    button1_border.place(relx=0.44, rely=0.55, anchor='center')
     button1.pack()
 
-    button2_border.place(relx=0.55, rely=0.56, anchor='center')
+    button2_border.place(relx=0.56, rely=0.55, anchor='center')
     button2.pack()
 
     place_forget((input_box_border, submit_button_border))
 
 
 def place_play_again_button():
-    play_again_button_border.place(relx=0.5, rely=0.7, anchor='center')
+    play_again_button_border.place(relx=0.5, rely=0.72, anchor='center')
     play_again_button.pack()
 
 
@@ -45,7 +45,7 @@ def answer_set_legs(value):
         answer.set(int(value))
         place_forget(error_label)
     else:
-        error_label.place(relx=0.5, rely=0.7, anchor='center')
+        error_label.place(relx=0.5, rely=0.75, anchor='center')
         input_box.delete(0, tk.END)
 
 
@@ -130,11 +130,11 @@ def guess_animal():
 
     if len(data) == 0:
         place_forget((top_label, button1_border, button2_border, input_box_border, submit_button_border))
-        final_label.config(text="Sorry, I don't know what animal you're thinking of.", font=('Arial', 55, 'bold'))
+        final_label.config(text="Sorry, I don't know what animal you're thinking of.", font=('Arial', 45, 'bold'))
         final_label.place(relx=0.5, rely=0.45, anchor='center')
     elif len(data) == 1:
         place_forget((top_label, button1_border, button2_border, input_box_border, submit_button_border))
-        final_label.config(text='\nMy guess is: ' + data['animal_name'].iloc[0], font=('Arial', 85, 'bold'))
+        final_label.config(text='\nMy guess is: ' + data['animal_name'].iloc[0], font=('Arial', 60, 'bold'))
         final_label.place(relx=0.5, rely=0.45, anchor='center')
 
     place_play_again_button()
@@ -151,7 +151,7 @@ def start():
 # Creating app
 
 app = tk.Tk()
-app.state('zoomed')
+app.geometry('1920x1080')
 app.title('Animal Guesser')
 windll.shcore.SetProcessDpiAwareness(1)
 
@@ -161,36 +161,36 @@ answer = tk.IntVar()
 
 # Creating all elements
 
-button_start = tk.Button(app, text='Start Animal Guesser', command=lambda: start_var.set(1), font=('Arial', 90, 'bold'),
+button_start = tk.Button(app, text='Start Animal Guesser', command=lambda: start_var.set(1), font=('Arial', 70, 'bold'),
                          bg='black', fg='white', cursor='hand2', bd=0,
                          activebackground='black', activeforeground='white')
 
-top_label = tk.Label(app, textvariable=question_text, font=('Arial', 95, 'bold'))
+top_label = tk.Label(app, textvariable=question_text, font=('Arial', 65, 'bold'))
 
-button1_border = tk.Frame(app, highlightbackground="black", highlightthickness=7, bd=0)
-button2_border = tk.Frame(app, highlightbackground="black", highlightthickness=7, bd=0)
+button1_border = tk.Frame(app, highlightbackground="black", highlightthickness=5, bd=0)
+button2_border = tk.Frame(app, highlightbackground="black", highlightthickness=5, bd=0)
 
 button1 = tk.Button(button1_border, text='Yes', command=lambda: answer.set(1), bg='white', fg='black', cursor='hand2',
-                    font=('Arial', 65, 'bold'), bd=0, activebackground='white', activeforeground='black', width=5)
+                    font=('Arial', 40, 'bold'), bd=0, activebackground='white', activeforeground='black', width=5)
 button2 = tk.Button(button2_border, text='No', command=lambda: answer.set(0), bg='black', fg='white', cursor='hand2',
-                    font=('Arial', 65, 'bold'), bd=0, activebackground='black', activeforeground='white', width=5)
+                    font=('Arial', 40, 'bold'), bd=0, activebackground='black', activeforeground='white', width=5)
 
-input_box_border = tk.Frame(app, highlightbackground="black", highlightthickness=4, bd=0)
-input_box = tk.Entry(input_box_border, font=('Arial', 80, 'normal'), justify='center')
+input_box_border = tk.Frame(app, highlightbackground="black", highlightthickness=3, bd=0)
+input_box = tk.Entry(input_box_border, font=('Arial', 45, 'normal'), justify='center')
 
 submit_button_border = tk.Frame(app, highlightbackground="black", highlightthickness=5, bd=0)
 submit_button = tk.Button(submit_button_border, text='Submit', command=lambda: answer_set_legs(input_box.get()),
-                          bg='black', fg='white', cursor='hand2', font=('Arial', 60, 'bold'), bd=0,
+                          bg='black', fg='white', cursor='hand2', font=('Arial', 40, 'bold'), bd=0,
                           activebackground='black', activeforeground='white', width=7)
 
-error_label = tk.Label(app, text='Legs count must be a natural number!', font=('Arial', 30, 'bold'), fg='red')
+error_label = tk.Label(app, text='Legs count must be a natural number!', font=('Arial', 25, 'bold'), fg='red')
 
-final_label = tk.Label(app, text='', font=('Arial', 55, 'bold'))
+final_label = tk.Label(app, text='', font=('Arial', 35, 'bold'))
 
 play_again_button_border = tk.Frame(app, highlightbackground="black", highlightthickness=5, bd=0)
 play_again_button = tk.Button(play_again_button_border, text='Play again!', command=start,
-                              bg='black', fg='white', cursor='hand2', font=('Arial', 60, 'bold'), bd=0,
-                              activebackground='black', activeforeground='white', width=10)
+                              bg='black', fg='white', cursor='hand2', font=('Arial', 40, 'bold'), bd=0,
+                              activebackground='black', activeforeground='white', width=9)
 
 # Starting guessing
 
