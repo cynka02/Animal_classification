@@ -8,10 +8,6 @@ from load_dataset import split_data
 from sklearn.metrics import accuracy_score
 
 
-def compute_accuracy(model, test, test_classes):
-    return accuracy_score(test_classes, model.predict(test))
-
-
 def evaluate_models():
     """
         Trains all available models and evaluate them to find the best fitted model.
@@ -20,7 +16,7 @@ def evaluate_models():
             dict: Model names and accuracy.
     """
 
-    x_train, x_test, y_train, y_test = split_data()
+    _, x_test, _, y_test = split_data()
 
     knn = get_model_knn()
     decision_tree = get_model_decision_tree()
