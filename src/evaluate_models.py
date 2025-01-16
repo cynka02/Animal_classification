@@ -6,6 +6,9 @@ from models.kmeans import get_model_kmeans
 from models.GradientBoosting import get_model_gradient_boosting
 from load_dataset import split_data
 from sklearn.metrics import accuracy_score
+from config import OUTPUT_FILE_PATH
+from utils import get_repo_path
+import json
 
 
 def evaluate_models():
@@ -35,11 +38,14 @@ def evaluate_models():
     return models_evaluation
 
 
-def main():
+def save_to_json(models_accuracy):
+    with open(get_repo_path() / OUTPUT_FILE_PATH, 'w') as f:
+        json.dump(models_accuracy, f)
 
-    accuracy = evaluate_models()
-    print(accuracy)
-    print('With the most accuracy: ' + max(accuracy, key=accuracy.get))
+
+def main():
+    models_accuracy = evaluate_models()
+    save_to_json(models_accuracy)
 
 
 if __name__ == '__main__':
