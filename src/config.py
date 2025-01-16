@@ -1,5 +1,6 @@
 COLUMN_TO_DELETE = ['animal_name', 'class_type']
 CLASS_COLUMN = 'class_type'
+CLASS_NAMES = ['Mammal', 'Bird', 'Reptile', 'Fish', 'Amphibian', 'Bug', 'Invertebrate']
 PATH_TO_DATASET = 'data/zoo.csv'
 PATH_TO_CLASS_DATASET = 'data/class.csv'
 OUTPUT_FILE_PATH = 'out/accuracy.json'
