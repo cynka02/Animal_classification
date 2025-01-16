@@ -201,6 +201,4 @@ button_start.destroy()
 
 start()
 
-# dodać obsługę błędu przy wpisywaniu liczby
-
 app.mainloop()
