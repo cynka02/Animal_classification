@@ -33,6 +33,10 @@ def place_top_label():
 
 
 def place_forget(elements):
+    """
+        Deletes elements placement in app.
+    """
+
     if type(elements) is tuple:
         for ele in elements:
             ele.place_forget()
@@ -41,6 +45,11 @@ def place_forget(elements):
 
 
 def answer_set_legs(value):
+    """
+        Sets parameter 'value' to answer variable.
+        If parameter 'value' is not numeric, places error label.
+    """
+
     if value.isnumeric():
         answer.set(int(value))
         place_forget(error_label)
@@ -51,7 +60,7 @@ def answer_set_legs(value):
 
 def find_nearest_to_50(dict):
     """
-        Finds the most diverse column among animal features. The closer to 50%, the greater the differentiation
+        Finds the most diverse column among animal features. The closer to 50% the greater the differentiation.
 
         Returns:
             str: column name that is the most diverse.
@@ -64,6 +73,10 @@ def find_nearest_to_50(dict):
 
 
 def ask_question(feature):
+    """
+        Sets question text based on feature name.
+    """
+
     if feature == 'predator':
         question_text.set('Is your animal a predator?')
     elif feature in ('aquatic', 'venomous', 'domestic', 'catsize', 'airborne', 'toothed'):
@@ -82,7 +95,7 @@ def ask_question(feature):
 
 def guessing_step(data):
     """
-        Performs full quessing step:
+        Performs full guessing step:
             1. Calculates variety of all animal features.
             2. Sends question to user about most diverse feature.
             3. Filter data based on this answer.
@@ -115,6 +128,10 @@ def guessing_step(data):
 
 
 def guess_animal():
+    """
+        Main function for animal guessing process.
+    """
+
     data = load_data()
 
     while len(data) > 1:
@@ -141,6 +158,10 @@ def guess_animal():
 
 
 def start():
+    """
+        Places tkinter elements and starts guessing process.
+    """
+
     place_forget((final_label, play_again_button_border))
     input_box.delete(0, tk.END)
     place_top_label()

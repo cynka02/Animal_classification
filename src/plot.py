@@ -27,7 +27,7 @@ def distribution(title, x_label, y_label, filename):
 
 def correlation(title, filename):
     """
-        Heatmap is generated to show the correlation heatmap of the animals' features.
+        Heatmap is generated to show the correlation heatmap of the animal features.
     """
 
     corr = data.iloc[:, 1:-1].corr()
@@ -39,7 +39,7 @@ def correlation(title, filename):
 
 def feature_importance(title, x_label, y_label, filename):
     """
-        The bar chart is generated to show the importance of animals' features based on the
+        The bar chart is generated to show the importance of animal features based on the
         trained Random Forest model.
     """
 
@@ -56,7 +56,7 @@ def feature_importance(title, x_label, y_label, filename):
 
 def plot_decision_tree(model, filename):
     """
-            Plots the trained Decision Tree Classifier model.
+        Plots the trained Decision Tree Classifier model.
     """
 
     feature_names = data.drop(columns=['animal_name', 'class_type']).columns.tolist()

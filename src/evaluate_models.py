@@ -39,6 +39,10 @@ def evaluate_models():
 
 
 def save_to_json(models_accuracy):
+    """
+        Saves models accuracy to .json file.
+    """
+
     with open(get_repo_path() / OUTPUT_FILE_PATH, 'w') as f:
         json.dump(models_accuracy, f)
 
