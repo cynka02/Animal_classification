@@ -9,7 +9,6 @@ from sklearn.tree import plot_tree
 from config import *
 
 
-
 data = load_data()
 
 
