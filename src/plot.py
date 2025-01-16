@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from models.RandomForest import get_model_random_forest
 from src.load_dataset import split_data, load_data
+from utils import get_repo_path
 
 
 data = load_data()
@@ -18,7 +19,7 @@ def distribution(title, x_label, y_label, filename):
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    plt.savefig('plots/' + filename + '.png')
+    plt.savefig(get_repo_path() / 'plots' / filename)
 
 
 def correlation(title, filename):
@@ -30,7 +31,7 @@ def correlation(title, filename):
     plt.figure(figsize=(12, 8))
     sns.heatmap(corr, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
     plt.title(title)
-    plt.savefig('plots/' + filename + '.png')
+    plt.savefig(get_repo_path() / 'plots' / filename)
 
 
 def feature_importance(title, x_label, y_label, filename):
@@ -47,15 +48,15 @@ def feature_importance(title, x_label, y_label, filename):
     plt.title(title)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    plt.savefig('plots/' + filename + '.png')
+    plt.savefig(get_repo_path() / 'plots' / filename)
 
 
 def main():
     distribution(title='Distribution of animal class types', x_label='Class type', y_label='Count',
-                 filename='class_type_distribution')
-    correlation(title='Correlation Heatmap', filename='correlation_between_features')
+                 filename='class_type_distribution.png')
+    correlation(title='Correlation Heatmap', filename='correlation_between_features.png')
     feature_importance(title='Feature Importance from Random Forest', x_label='Features', y_label='Importance',
-                       filename='feature_importance')
+                       filename='feature_importance.png')
 
 
 if __name__ == '__main__':

@@ -1,6 +1,7 @@
 import pandas as pd
 from config import *
 from sklearn.model_selection import train_test_split
+from utils import get_repo_path
 
 
 def split_data():
@@ -11,7 +12,7 @@ def split_data():
             tuple: train and test dataframes.
     """
 
-    data = pd.read_csv(PATH_TO_DATASET)
+    data = pd.read_csv(get_repo_path() / PATH_TO_DATASET)
     data = data.drop_duplicates()
     x = data.drop(columns=COLUMN_TO_DELETE)
     y = data[CLASS_COLUMN]
@@ -19,6 +20,6 @@ def split_data():
 
 
 def load_data():
-    data = pd.read_csv(PATH_TO_DATASET)
+    data = pd.read_csv(get_repo_path() / PATH_TO_DATASET)
     data = data.drop_duplicates()
     return data
