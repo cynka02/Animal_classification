@@ -2,6 +2,7 @@ COLUMN_TO_DELETE = ['animal_name', 'class_type']
 CLASS_COLUMN = 'class_type'
 CLASS_NAMES = ['Mammal', 'Bird', 'Reptile', 'Fish', 'Amphibian', 'Bug', 'Invertebrate']
 DATASET_ID = 'uciml/zoo-animal-classification'
+DOWNLOAD_PATH = '../data'
 PATH_TO_DATASET = 'data/zoo.csv'
 PATH_TO_CLASS_DATASET = 'data/class.csv'
 OUTPUT_FILE_PATH = 'out/accuracy.json'
