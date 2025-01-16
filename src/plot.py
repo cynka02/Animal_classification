@@ -55,7 +55,7 @@ def feature_importance(title, x_label, y_label, filename):
 
 def plot_decision_tree(model, filename):
     feature_names = data.drop(columns=['animal_name', 'class_type']).columns.tolist()
-    plt.figure(figsize=(18, 20))
+    plt.figure(figsize=(18, 22))
     plot_tree(model, feature_names=feature_names, class_names=CLASS_NAMES, fontsize=12, impurity=False)
     plt.savefig(get_repo_path() / 'plots' / filename)
 
