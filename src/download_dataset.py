@@ -3,6 +3,10 @@ from config import *
 
 
 def download_dataset():
+    """
+        Downloads the dataset from Kaggle.
+    """
+    
     try:
         kaggle.api.dataset_download_files(DATASET_ID, path=DOWNLOAD_PATH, unzip=True)
     except Exception as e:
