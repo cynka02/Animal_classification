@@ -4,6 +4,8 @@ import seaborn as sns
 from models.RandomForest import get_model_random_forest
 from src.load_dataset import split_data, load_data
 from utils import get_repo_path
+from models.DecisionTree import get_model_decision_tree
+
 
 
 data = load_data()
