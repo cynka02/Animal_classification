@@ -58,6 +58,7 @@ def plot_decision_tree(model, filename):
     """
             Plots the trained Decision Tree Classifier model.
     """
+
     feature_names = data.drop(columns=['animal_name', 'class_type']).columns.tolist()
     plt.figure(figsize=(18, 22))
     plot_tree(model, feature_names=feature_names, class_names=CLASS_NAMES, fontsize=12, impurity=False)
