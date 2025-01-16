@@ -71,6 +71,7 @@ def main():
     correlation(title='Correlation Heatmap', filename='correlation_between_features.png')
     feature_importance(title='Feature Importance from Random Forest', x_label='Features', y_label='Importance',
                        filename='feature_importance.png')
+    plot_decision_tree(model=get_model_decision_tree(), filename='decision_tree_plot.png')
 
 
 if __name__ == '__main__':
