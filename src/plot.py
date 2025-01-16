@@ -53,6 +53,12 @@ def feature_importance(title, x_label, y_label, filename):
     plt.ylabel(y_label)
     plt.savefig(get_repo_path() / 'plots' / filename)
 
+def plot_decision_tree(model, filename):
+    feature_names = data.drop(columns=['animal_name', 'class_type']).columns.tolist()
+    plt.figure(figsize=(18, 20))
+    plot_tree(model, feature_names=feature_names, class_names=CLASS_NAMES, fontsize=12, impurity=False)
+    plt.savefig(get_repo_path() / 'plots' / filename)
+
 
 def main():
     distribution(title='Distribution of animal class types', x_label='Class type', y_label='Count',
