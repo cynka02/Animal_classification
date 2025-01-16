@@ -53,6 +53,7 @@ def feature_importance(title, x_label, y_label, filename):
     plt.ylabel(y_label)
     plt.savefig(get_repo_path() / 'plots' / filename)
 
+
 def plot_decision_tree(model, filename):
     """
             Plots the trained Decision Tree Classifier model.
