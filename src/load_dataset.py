@@ -13,7 +13,7 @@ def load_data():
     """
 
     data = pd.read_csv(get_repo_path() / PATH_TO_DATASET)
-    data = data.drop_duplicates()
+    data.drop_duplicates(subset='animal_name', inplace=True)
     return data
 
 
