@@ -141,7 +141,7 @@ def guess_animal():
             place_forget((top_label, button1_border, button2_border, input_box_border, submit_button_border))
             final_label.config(text="I don't have enough data to continue this guessing,\n "
                                     "but probably you're thinking of one of these animals:\n\n" +
-                                    ', '.join(data['animal_name'].tolist()))
+                                    ', '.join(data['animal_name'].tolist()), font=('Arial', 35, 'bold'))
             final_label.place(relx=0.5, rely=0.5, anchor='center')
             break
 
@@ -206,7 +206,7 @@ submit_button = tk.Button(submit_button_border, text='Submit', command=lambda: a
 
 error_label = tk.Label(app, text='Legs count must be a natural number!', font=('Arial', 25, 'bold'), fg='red')
 
-final_label = tk.Label(app, text='', font=('Arial', 35, 'bold'))
+final_label = tk.Label(app, text='')
 
 play_again_button_border = tk.Frame(app, highlightbackground="black", highlightthickness=5, bd=0)
 play_again_button = tk.Button(play_again_button_border, text='Play again!', command=start,
