@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import json
 from models.RandomForest import get_model_random_forest
 from src.load_dataset import split_data, load_data
 from utils import get_repo_path
@@ -46,6 +47,7 @@ def feature_importance(title, x_label, y_label, filename):
     model = get_model_random_forest()
     x_train, _, _, _ = split_data()
     importance = pd.Series(model.feature_importances_, index=x_train.columns).sort_values(ascending=False)
+
     plt.figure(figsize=(16, 12))
     importance.plot(kind='bar', color='hotpink')
     plt.title(title)
@@ -65,6 +67,22 @@ def plot_decision_tree(model, filename):
     plt.savefig(get_repo_path() / 'plots' / filename)
 
 
+def plot_accuracy(title, filename):
+    """
+        Plots accuracy of models from file accuracy.json.
+    """
+
+    with open(get_repo_path() / OUTPUT_FILE_PATH) as f:
+        models_accuracy = json.load(f)
+    y, x = zip(*sorted(models_accuracy.items()))
+    accuracy_list = pd.Series(x, y).sort_values(ascending=False)
+
+    plt.figure(figsize=(18, 22))
+    accuracy_list.plot(kind='bar', color='hotpink', fontsize=18)
+    plt.title(title, fontsize=40)
+    plt.savefig(get_repo_path() / 'plots' / filename)
+
+
 def main():
     distribution(title='Distribution of animal class types', x_label='Class type', y_label='Count',
                  filename='class_type_distribution.png')
@@ -72,6 +90,7 @@ def main():
     feature_importance(title='Feature Importance from Random Forest', x_label='Features', y_label='Importance',
                        filename='feature_importance.png')
     plot_decision_tree(model=get_model_decision_tree(), filename='decision_tree_plot.png')
+    plot_accuracy(title='Models accuracy', filename='accuracy_plot.png')
 
 
 if __name__ == '__main__':
