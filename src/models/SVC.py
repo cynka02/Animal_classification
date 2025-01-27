@@ -1,5 +1,6 @@
 from sklearn.svm import SVC
 from src.load_dataset import split_data
+from src.config import SEED
 
 
 def get_model_svc():
@@ -11,7 +12,7 @@ def get_model_svc():
     """
 
     x_train, x_test, y_train, y_test = split_data()
-    model = SVC(probability=True)
+    model = SVC(probability=True, random_state=SEED)
     model.fit(x_train, y_train)
     return model
 

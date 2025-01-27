@@ -1,5 +1,6 @@
 from sklearn.tree import DecisionTreeClassifier
 from src.load_dataset import split_data
+from src.config import SEED
 
 
 def get_model_decision_tree():
@@ -11,7 +12,7 @@ def get_model_decision_tree():
     """
 
     x_train, x_test, y_train, y_test = split_data()
-    model = DecisionTreeClassifier()
+    model = DecisionTreeClassifier(random_state=SEED)
     model.fit(x_train, y_train)
     return model
 
