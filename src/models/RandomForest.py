@@ -1,6 +1,6 @@
 from sklearn.ensemble import RandomForestClassifier
-from src.load_dataset import split_data
-from src.config import SEED
+from load_dataset import split_data
+from config import SEED
 
 
 def get_model_random_forest():

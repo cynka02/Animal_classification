@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import json
 from models.RandomForest import get_model_random_forest
-from src.load_dataset import split_data, load_data
+from load_dataset import split_data, load_data
 from utils import get_repo_path
 from models.DecisionTree import get_model_decision_tree
 from sklearn.tree import plot_tree
@@ -89,7 +89,7 @@ def main():
     correlation(title='Correlation Heatmap', filename='correlation_between_features.png')
     feature_importance(title='Feature Importance from Random Forest', x_label='Features', y_label='Importance',
                        filename='feature_importance.png')
-    plot_decision_tree(model=get_model_decision_tree(), filename='decision_tree_plot.png')
+    plot_decision_tree(model=get_model_decision_tree(), filename='decision_tree.png')
     plot_accuracy(title='Models accuracy', filename='accuracy_plot.png')
 
 
