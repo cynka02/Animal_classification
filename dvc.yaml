@@ -1,0 +1,28 @@
+stages:
+  plots:
+    cmd: python src/plot.py
+    deps:
+    - src/models/RandomForest.py
+    - src/models/DecisionTree.py
+    - src/plot.py
+    - src/load_dataset.py
+    - src/utils.py
+    - src/config.py
+    - data/zoo.csv
+    outs:
+    - plots/accuracy_plot.png
+    - plots/class_type_distribution.png
+    - plots/correlation_between_features.png
+    - plots/decision_tree.png
+    - plots/feature_importance.png
+  evaluate:
+    cmd: python src/evaluate_models.py
+    deps:
+    - src/models
+    - src/config.py
+    - src/evaluate_models.py
+    - src/utils.py
+    - src/load_dataset.py
+    - data/zoo.csv
+    metrics:
+    - out/accuracy.json
