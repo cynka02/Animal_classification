@@ -8,7 +8,7 @@ from models.GradientBoosting import get_model_gradient_boosting
 class TestGradientBoostingModel(unittest.TestCase):
     def test_return_type(self):
         """
-            Test if get_model_gradient_boosting returns an instance of GradientBoostingClassifier.
+            Tests if get_model_gradient_boosting returns an instance of GradientBoostingClassifier.
         """
 
         model = get_model_gradient_boosting()
