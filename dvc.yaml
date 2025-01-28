@@ -8,7 +8,7 @@ stages:
     - src/utils.py
     - src/config.py
     - data/zoo.csv
-    outs:
+    plots:
     - plots/accuracy_plot.png
     - plots/class_type_distribution.png
     - plots/correlation_between_features.png

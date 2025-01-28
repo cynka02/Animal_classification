@@ -62,7 +62,7 @@ dvc repro plots
 
 To see the results of the pipeline run the following commands:
 ```
-dvc evaluate show
+dvc metrics show
 dvc plots show
 ```
 
