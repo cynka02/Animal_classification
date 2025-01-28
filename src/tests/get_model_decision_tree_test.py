@@ -10,6 +10,7 @@ class TestDecisionTreeModel(unittest.TestCase):
         """
             Test if get_model_decision_tree returns an instance of DecisionTreeClassifier.
         """
+
         model = get_model_decision_tree()
         self.assertIsInstance(model, DecisionTreeClassifier)
 
