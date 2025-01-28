@@ -1,5 +1,5 @@
 from sklearn.svm import SVC
-from load_dataset import split_data
+from utils import split_data
 from config import SEED
 
 

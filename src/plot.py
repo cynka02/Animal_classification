@@ -1,12 +1,10 @@
-import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import json
 from models.RandomForest import get_model_random_forest
-from load_dataset import split_data, load_data
-from utils import get_repo_path
 from models.DecisionTree import get_model_decision_tree
 from sklearn.tree import plot_tree
+from utils import *
 from config import *
 
 

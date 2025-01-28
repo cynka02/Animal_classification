@@ -1,6 +1,6 @@
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
-from load_dataset import split_data
+from utils import split_data
 
 
 def find_best_k(x_train, x_test, y_train, y_test):

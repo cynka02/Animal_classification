@@ -5,7 +5,6 @@ stages:
     - src/models/RandomForest.py
     - src/models/DecisionTree.py
     - src/plot.py
-    - src/load_dataset.py
     - src/utils.py
     - src/config.py
     - data/zoo.csv
@@ -22,7 +21,6 @@ stages:
     - src/config.py
     - src/evaluate_models.py
     - src/utils.py
-    - src/load_dataset.py
     - data/zoo.csv
     metrics:
     - out/accuracy.json

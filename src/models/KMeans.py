@@ -1,5 +1,5 @@
 from sklearn.cluster import KMeans
-from load_dataset import split_data
+from utils import split_data
 from config import SEED
 
 

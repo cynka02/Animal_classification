@@ -1,10 +1,9 @@
 import json
 import importlib
 import pandas as pd
-from utils import get_repo_path
 from config import OUTPUT_FILE_PATH
 from config import PATH_TO_CLASS_DATASET
-from load_dataset import load_data
+from utils import load_data, get_repo_path
 import tkinter as tk
 from ctypes import windll
 

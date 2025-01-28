@@ -4,10 +4,9 @@ from models.SVC import get_model_svc
 from models.RandomForest import get_model_random_forest
 from models.KMeans import get_model_kmeans
 from models.GradientBoosting import get_model_gradient_boosting
-from load_dataset import split_data
+from utils import split_data, get_repo_path
 from sklearn.metrics import accuracy_score
 from config import OUTPUT_FILE_PATH
-from utils import get_repo_path
 import json
 
 

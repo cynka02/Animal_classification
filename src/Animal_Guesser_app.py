@@ -1,4 +1,4 @@
-from load_dataset import load_data
+from utils import load_data
 import tkinter as tk
 from ctypes import windll
 
