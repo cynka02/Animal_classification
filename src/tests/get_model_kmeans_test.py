@@ -7,6 +7,10 @@ from models.KMeans import get_model_kmeans
 
 class TestKMeansModel(unittest.TestCase):
     def test_return_type(self):
+        """
+            Test if get_model_kmeans returns an instance of KMeans.
+        """
+
         model = get_model_kmeans()
         self.assertIsInstance(model, KMeans)
 
