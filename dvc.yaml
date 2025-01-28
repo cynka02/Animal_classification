@@ -1,4 +1,14 @@
 stages:
+  evaluate:
+    cmd: python src/evaluate_models.py
+    deps:
+      - src/models
+      - src/config.py
+      - src/evaluate_models.py
+      - src/utils.py
+      - data/zoo.csv
+    metrics:
+      - out/accuracy.json
   plots:
     cmd: python src/plot.py
     deps:
@@ -14,13 +24,3 @@ stages:
     - plots/correlation_between_features.png
     - plots/decision_tree.png
     - plots/feature_importance.png
-  evaluate:
-    cmd: python src/evaluate_models.py
-    deps:
-    - src/models
-    - src/config.py
-    - src/evaluate_models.py
-    - src/utils.py
-    - data/zoo.csv
-    metrics:
-    - out/accuracy.json
