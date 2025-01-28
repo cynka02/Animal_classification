@@ -1,7 +1,9 @@
 import unittest
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import make_classification
-from src.models.kNN import find_best_k
+import repackage
+repackage.up()
+from models.kNN import find_best_k
 
 
 class TestFindBestK(unittest.TestCase):
@@ -20,7 +22,7 @@ class TestFindBestK(unittest.TestCase):
 
     def test_find_best_k(self):
         """
-            Test if find_best_k returns a valid k within the expected range.
+            Tests if find_best_k returns a valid k within the expected range.
         """
 
         best_k = find_best_k(self.x_train, self.x_test, self.y_train, self.y_test)
@@ -28,7 +30,7 @@ class TestFindBestK(unittest.TestCase):
 
     def test_is_best_k_integer(self):
         """
-            Test if find_best_k returns an integer value.
+            Tests if find_best_k returns an integer value.
         """
 
         best_k = find_best_k(self.x_train, self.x_test, self.y_train, self.y_test)
