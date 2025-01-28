@@ -48,22 +48,21 @@ pip install -r requirements.txt
 
 This project uses DVC (Data Version Control) to run data processing pipelines.
 
-Run the "evaluate_model" stage to see performance of the best model
+Run the "evaluate" stage to see performance of all models
 ```
-dvc repro evaluate_model
+dvc repro evaluate
 ```
 
-To see the accuracy of the best model run
+Run the "plots" stage to create all plots with data and models visualization
 ```
-dvc accuracy show
-dvc plots show
+dvc repro plots
 ```
 
 ### Seeing the results
 
-To see the results of the ML-pipeline run the following commands:
+To see the results of the pipeline run the following commands:
 ```
-dvc metrics show
+dvc evaluate show
 dvc plots show
 ```
 
@@ -84,7 +83,10 @@ The application is designed to identify the name of an animal based on a series 
 
 ### How to use Animal Guesser app
 
-Run Animal_Guesser_app.py
+Run the app
+```
+python Animal_Guesser_app.py
+```
 
 ![Gif 1](gif1.gif)
 
@@ -94,6 +96,9 @@ The application is designed to recognize the class of an animal based on the ava
 
 ### How to use Animal Class Guesser app
 
-Run Class_Guesser_app.py
+Run the app
+```
+python Class_Guesser_app.py
+```
 
 ![Gif 2](gif2.gif)
