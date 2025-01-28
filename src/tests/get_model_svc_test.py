@@ -8,7 +8,7 @@ from models.SVC import get_model_svc
 class TestSVCModel(unittest.TestCase):
     def test_return_type(self):
         """
-            Test if get_model_svc returns an instance of SVC.
+            Tests if get_model_svc returns an instance of SVC.
         """
 
         model = get_model_svc()
