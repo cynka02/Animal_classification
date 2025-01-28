@@ -5,3 +5,4 @@ seaborn==0.13.2
 dvc==3.58.0
 repackage==0.7.3
 asyncssh==2.18.0
+dvc-ssh==4.1.1
