@@ -1,0 +1,79 @@
+schema: '2.0'
+stages:
+  evaluate:
+    cmd: python src/evaluate_models.py
+    deps:
+    - path: data/zoo.csv
+      hash: md5
+      md5: 792fd17fbb62c3f8bdd8d57fe4e4b8d2
+      size: 4368
+    - path: src/config.py
+      hash: md5
+      md5: c5b011a146d80ed2caeaa3fa54d2c8c9
+      size: 312
+    - path: src/evaluate_models.py
+      hash: md5
+      md5: ddb6fb3d7a06eb6c32faf7b2ddf1302a
+      size: 1836
+    - path: src/models
+      hash: md5
+      md5: a769b1be9b37ca353cc12f184b0ca72a.dir
+      size: 12649
+      nfiles: 14
+    - path: src/utils.py
+      hash: md5
+      md5: 2a5a4a1e1e9928d5be76a88b03f354aa
+      size: 1116
+    outs:
+    - path: out/accuracy.json
+      hash: md5
+      md5: 206ff9fad46453f7a7b4b67996baae54
+      size: 139
+  plots:
+    cmd: python src/plot.py
+    deps:
+    - path: data/zoo.csv
+      hash: md5
+      md5: 792fd17fbb62c3f8bdd8d57fe4e4b8d2
+      size: 4368
+    - path: src/config.py
+      hash: md5
+      md5: c5b011a146d80ed2caeaa3fa54d2c8c9
+      size: 312
+    - path: src/models/DecisionTree.py
+      hash: md5
+      md5: ac6bce3ab2687490a6fbec6a86d40895
+      size: 560
+    - path: src/models/RandomForest.py
+      hash: md5
+      md5: 1ca27afcba8621dc26379f5deffbfc03
+      size: 566
+    - path: src/plot.py
+      hash: md5
+      md5: 2b7e98f6840e0263bdac73c03743f643
+      size: 3224
+    - path: src/utils.py
+      hash: md5
+      md5: 2a5a4a1e1e9928d5be76a88b03f354aa
+      size: 1116
+    outs:
+    - path: plots/accuracy_plot.png
+      hash: md5
+      md5: 80f5d1ce27d93525691b4f90cae25677
+      size: 54544
+    - path: plots/class_type_distribution.png
+      hash: md5
+      md5: 7434f801f92c60389057df80321f760d
+      size: 15501
+    - path: plots/correlation_between_features.png
+      hash: md5
+      md5: 3e9df982947fcc39adbc764c96ea7acc
+      size: 191281
+    - path: plots/decision_tree.png
+      hash: md5
+      md5: 5f78af80d7b0acfa037e2d875ded120a
+      size: 161599
+    - path: plots/feature_importance.png
+      hash: md5
+      md5: df01079eab1587cfb0d3794e289a2126
+      size: 36297
